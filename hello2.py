@@ -1,13 +1,16 @@
- # hello2.py
+import requests
 
-def greet():
-    print("Hello from GitHub Actions!")
+url = "https://api.artic.edu/api/v1/artworks"
+params = {
+    "page": 1,
+    "limit": 1,
+    "fields": "id,title,artist_display,date_display"
+}
 
-def calculate():
-    result = sum(range(1, 11))  # Sum of numbers 1 to 10
-    print(f"The result is: {result}")
+response = requests.get(url, params=params)
 
-if __name__ == "__main__":
-    greet()
-    calculate()
-#Test new changes
+if response.status_code == 200:
+    artwork = response.json()["data"][0]
+    print(f"🎨 {artwork['title']} by {artwork['artist_display']} ({artwork['date_display']})")
+else:
+    print("Error:", response.status_code)

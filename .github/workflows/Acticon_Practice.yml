@@ -12,5 +12,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run hello.py
-        run: python hello.py
+      - name: Run hello2.py
+        run: python hello2.py

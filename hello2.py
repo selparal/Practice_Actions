@@ -11,6 +11,6 @@ response = requests.get(url, params=params)
 
 if response.status_code == 200:
     artwork = response.json()["data"][0]
-    print(f"🎨 {artwork['title']} by {artwork['artist_display']} ({artwork['date_display']})")
+    print(f" {artwork['title']} by {artwork['artist_display']} ({artwork['date_display']})")
 else:
     print("Error:", response.status_code)

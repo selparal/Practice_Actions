@@ -1,9 +1,8 @@
 name: Hello GitHub Actions
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 * * * *' #Runs every hour (minute zero of every hour)
 
 jobs:
   say-hello:
